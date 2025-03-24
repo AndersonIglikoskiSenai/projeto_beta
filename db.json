@@ -1,0 +1,13 @@
+{
+  "usuarios": [
+    {
+      "id": 1,
+      "nome": "João Silva",
+      "sobrenome": "Souza",
+      "email": "joao.silva@email.com",
+      "telefone": "(11) 98765-4321",
+      "senha": "senha123",
+      "confirmacaoSenha": "senha123"
+    }
+  ]
+}
