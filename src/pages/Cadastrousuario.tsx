@@ -1,6 +1,9 @@
+"use client";
+
 import { useForm } from 'react-hook-form';
 import * as Yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
+import axios from 'axios';
 
 interface FormData {
   nome: string;
@@ -27,16 +30,21 @@ const FormularioCadastro = () => {
     resolver: yupResolver(schema),
   });
 
-  const onSubmit = (data: FormData) => {
-    console.log('Dados enviados:', data);
+  const onSubmit = async (data: FormData) => {
+    try {
+      const response = await axios.post('http://localhost:5000/usuarios', data);
+      console.log('Dados enviados com sucesso:', response.data);
+      alert('Cadastro realizado com sucesso!');
+    } catch (error) {
+      console.error('Erro ao enviar os dados:', error);
+      alert('Ocorreu um erro ao cadastrar o usuário.');
+    }
   };
-
-
   return (
     <div className="max-w-lg mx-auto p-6 bg-white shadow-lg rounded-lg">
       <h2 className="text-2xl font-semibold text-center mb-6">Cadastro de Usuário</h2>
-      <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
 
+      <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
 
         <div>
           <input
@@ -102,8 +110,7 @@ const FormularioCadastro = () => {
         <div>
           <button
             type="submit"
-            className="w-full p-3 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
-          >
+            className="w-full p-3 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500">
             Cadastrar
           </button>
         </div>

@@ -5,12 +5,13 @@ import Home from "./pages/Home";
 import Cadastro from "./pages/Cadastrousuario";
 import ListaUsuarios from "./pages/ListaUsuarios";
 
+
 function App() {
   return (
     <Router>
       <div className="flex flex-col min-h-screen">
         <Header />
-        <main className="flex-grow container mx-auto p-4">
+        <main className="flex-grow container mx-auto p-4 bg-sky-300">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/cadastro" element={<Cadastro />} />

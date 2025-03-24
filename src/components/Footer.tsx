@@ -9,8 +9,6 @@ const AnoAtual = new Date().getFullYear();
     <footer className="bg-gray-800 text-white p-4 text-center w-screen">
       <p>
         &copy; {AnoAtual} - SENAI - Todos os direitos reservados
-        <p></p>
-
       </p>
     </footer>
   )
