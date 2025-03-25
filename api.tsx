@@ -8,7 +8,8 @@ export interface Usuario{
     nome: string,
     sobrenome: string,
     email : string,
-    cpf: string
+    telefone: string
+    senha: string
 }
 
 export const getUsuarios = async () => {
